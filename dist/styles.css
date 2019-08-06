@@ -14,6 +14,16 @@ body {
 
 button {
     cursor: pointer;
+    border: none;
+    background: none;
+}
+
+button:focus {
+    outline:none;
+}
+
+button:active {
+    transform: scale(0.95);
 }
 
 button:disabled {
