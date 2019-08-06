@@ -1,0 +1,26 @@
+{
+  "name": "digipack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bundle.js",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server"
+  },
+  "author": "Lisandro Pastinante",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/react": "^16.8.24",
+    "@types/react-dom": "^16.8.5",
+    "css-loader": "^3.2.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "style-loader": "^1.0.0",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.5.3",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2"
+  }
+}

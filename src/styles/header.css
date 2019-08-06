@@ -1,0 +1,15 @@
+.header {
+    height: 15vh;
+    display: flex;
+    padding: 8px;
+    background: #6f9a89;
+    font-size: 48px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: bold;
+    color: #b7673c;
+    text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+}
