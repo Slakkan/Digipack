@@ -23,7 +23,7 @@
     margin-top: 1rem;
 }
 .title-container{
-    display: block;
+    display: flex;
     flex-grow: 0;
     margin-left: 2rem;
 }
@@ -77,7 +77,7 @@
         font-size: 8rem;
     }
     .title-container{
-        margin: 0 4rem;
+        margin: 0 2rem;
         border-bottom: 0.5rem solid #b7673c;
     }
     .link-button{
