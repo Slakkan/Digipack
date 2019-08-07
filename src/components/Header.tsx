@@ -1,6 +1,7 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 
-import "../styles/header.css";
+import "../styles/components/header.css";
 
 export interface HeaderProps {}
 
@@ -10,28 +11,34 @@ const Header: React.SFC<HeaderProps> = props => {
       <div className="title-container">Digipack</div>
       <div className="link-container">
         <button
-          className="link"
+          className="link-button"
           onFocus={e => {
             e.target.blur();
           }}
         >
-          Inicio
+          <Link className="link" to="/">
+            Inicio
+          </Link>
         </button>
         <button
-          className="link"
+          className="link-button"
           onFocus={e => {
             e.target.blur();
           }}
         >
-          Envases
+          <Link className="link" to="/packaging">
+            Envases
+          </Link>
         </button>
         <button
-          className="link"
+          className="link-button"
           onFocus={e => {
             e.target.blur();
           }}
         >
-          Contacto
+          <Link className="link" to="/contact">
+            Contacto
+          </Link>
         </button>
       </div>
     </div>

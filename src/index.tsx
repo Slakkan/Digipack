@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import Header from './components/Header'
+import Router from './Router';
 
 const app = document.querySelector("#app")
 
-ReactDOM.render(<Header/>, app)
+ReactDOM.render(<Router/>, app)
