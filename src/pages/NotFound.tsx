@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-import '../styles/components/NotFound.css'
+import '../styles/pages/NotFound.css'
 import Header from '../components/Header';
 
 export interface NotFoundProps {
-    
+    userID: string | undefined
 }
  
 const NotFound: React.SFC<NotFoundProps> = () => {
