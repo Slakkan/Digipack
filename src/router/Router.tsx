@@ -8,7 +8,7 @@ import NotFound from "../pages/NotFound";
 import PublicRoute from "./Public Route";
 
 export interface RouterProps {
-  data: object
+  data: any[]
 }
 
 const Router: React.SFC<RouterProps> = (props) => {
