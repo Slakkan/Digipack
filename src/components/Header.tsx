@@ -5,7 +5,7 @@ export interface HeaderProps {}
 
 const Header: React.SFC<HeaderProps> = props => {
   return (
-    <div className="header">
+    <div className="header-container">
       <div className="title-container">Digipack</div>
       <div className="link-container">
         <button
