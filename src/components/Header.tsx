@@ -24,7 +24,7 @@ const Header: React.SFC<HeaderProps> = props => {
             e.target.blur();
           }}
         >
-          <Link className="link" to="/packaging">
+          <Link className="navigation-link" to="/packaging">
             Envases
           </Link>
         </button>
@@ -34,7 +34,7 @@ const Header: React.SFC<HeaderProps> = props => {
             e.target.blur();
           }}
         >
-          <Link className="link" to="/contact">
+          <Link className="navigation-link" to="/contact">
             Contacto
           </Link>
         </button>
