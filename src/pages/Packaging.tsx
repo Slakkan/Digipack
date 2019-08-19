@@ -22,12 +22,12 @@ class Packaging extends React.Component<PackagingProps, PackagingState> {
         <div className="main-container">
           <SearchBar
             data={this.props.data}
-            filters={["Medida", "Contenido", "Cliente"]}
+            filters={["Medidas", "Contenido", "Cliente"]}
           />
           <Catalog
             data={this.props.data}
             userID={this.props.userID}
-            filters={["Código", "Medida", "Contenido", "Cliente"]}
+            filters={["Modelo", "Código", "Medidas", "Contenido"]}
           />
         </div>
       </div>

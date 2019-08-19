@@ -1,24 +1,34 @@
-import * as React from 'react';
+import * as React from "react";
 
-import '../../styles/components/sub-components/Box.css'
+import Model from "./Model";
+
+import "../../styles/components/sub-components/Box.css";
 
 export interface BoxProps {
-    userID: string | undefined,
-    codigo: string,
-    medidas: string,
-    contenido: string,
-    cliente: string
+  userID: string | undefined;
+  codigo: string;
+  medidas: string;
+  contenido: string;
+  model: string;
 }
- 
-const Box: React.SFC<BoxProps> = (props:BoxProps) => {
-    return ( 
-        <div className="box-container" >
-            <div className="box" > {props.codigo} </div>
-            <div className="box" > {props.medidas} </div>
-            <div className="box" > {props.contenido} </div>
-            <div className="box" > {props.cliente} </div>
-        </div>
-     );
-}
- 
+
+const Box: React.SFC<BoxProps> = (props: BoxProps) => {
+  return (
+    <div className="box-container">
+      <Model
+        className="model"
+        object="EXHIBIDORA.obj"
+        material="EXHIBIDORA.mtl"
+      />
+      <div className="box"> <p>{props.codigo}</p>  </div>
+      <div className="box">
+        <p>{`Largo:${props.medidas.split("x")[0]}cm`}</p>
+        <p>{`Ancho:${props.medidas.split("x")[1]}cm`} </p>
+        <p>{`Alto:${props.medidas.split("x")[2]}cm`}</p>
+      </div>
+      <div className="box"> <p>{props.contenido}</p> </div>
+    </div>
+  );
+};
+
 export default Box;

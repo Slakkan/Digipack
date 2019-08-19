@@ -5,19 +5,26 @@
   "main": "bundle.js",
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server"
+    "server": "webpack-dev-server",
+    "start": "node server/server.js",
+    "heroku-postbuild": "npm run build"
   },
   "author": "Lisandro Pastinante",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.17.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.1"
+    "react-router-dom": "^5.0.1",
+    "three": "^0.107.0",
+    "three-obj-mtl-loader": "^1.0.3"
   },
   "devDependencies": {
+    "@types/express": "^4.17.1",
     "@types/react": "^16.8.24",
     "@types/react-dom": "^16.8.5",
     "@types/react-router-dom": "^4.3.4",
+    "@types/three": "^0.103.2",
     "css-loader": "^3.2.0",
     "style-loader": "^1.0.0",
     "ts-loader": "^6.0.4",

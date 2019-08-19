@@ -23,13 +23,14 @@ class Catalog extends React.Component<CatalogProps, CatalogState> {
             </div>
           ))}
         </div>
-        {this.props.data.map(object => (
+        {this.props.data.map((object, index) => (
           <Box
+            key={`Box${index}`}
             userID={this.props.userID}
             codigo={object.codigo}
             medidas={object.medidas}
             contenido={object.contenido}
-            cliente={object.cliente}
+            model={object.model}
           />
         ))}
       </div>

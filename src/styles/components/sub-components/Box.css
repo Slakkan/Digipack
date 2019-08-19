@@ -1,6 +1,5 @@
 .box-container{
     display: flex;
-    width: 85vw;
     margin-bottom: 1rem;
     justify-content: center;
     background: #f8bda1;
@@ -9,16 +8,26 @@
 }
 
 .box{
+    display: flex;
     flex: 1 1 0;
+    flex-direction: column;
+    justify-content: space-around;
     font-size: 1.4rem;
     line-height: 1.4rem;
-    text-align: center;
-    padding: 0.5rem 0
+    text-align: left;
+    padding: 0.5rem;
+}
+
+.model-container{
+    width: 25%;
+}
+
+.model{
+    border-radius: 0.8rem 0 0 0.8rem
 }
 
 @media screen and (min-width: 720px) {
     .box-container{
-        width: 75vw;
         margin-bottom: 1rem;
     }    
     .box{
