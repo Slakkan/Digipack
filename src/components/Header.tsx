@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 
-import "../styles/components/Header.css";
+import "../styles/components/Header";
 
 export interface HeaderProps {}
 

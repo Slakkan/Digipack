@@ -2,7 +2,7 @@ import * as React from "react";
 
 import Model from "./Model";
 
-import "../../styles/components/sub-components/Box.css";
+import "../../styles/components/sub-components/Box";
 
 export interface BoxProps {
   userID: string | undefined;

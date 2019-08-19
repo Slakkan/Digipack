@@ -34,6 +34,6 @@ module.exports = {
       },  
     devtool: "inline-source-map",
     resolve: {
-        extensions: ['.js', '.ts', '.tsx', '.json']
+        extensions: ['.js', '.ts', '.tsx', '.json', '.css']
       }
 }

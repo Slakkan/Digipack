@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import "../styles/components/Catalog.css";
+import "../styles/components/Catalog";
 import Box from "./sub-components/Box";
 
 export interface CatalogProps {
