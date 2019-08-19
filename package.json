@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "bundle.js",
+  "engines": {
+    "node": "10.16.0"
+  },
   "scripts": {
     "build": "webpack",
     "server": "webpack-dev-server",

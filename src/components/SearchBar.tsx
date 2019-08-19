@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import "../styles/components/SearchBar";
+import "../styles/components/SearchBar.css";
 
 export interface SearchBarProps {
   data: any[];

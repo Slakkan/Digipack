@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import "../styles/pages/Packaging";
+import "../styles/pages/Packaging.css";
 import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
 import Catalog from "../components/Catalog";
