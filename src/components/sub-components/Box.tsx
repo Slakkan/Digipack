@@ -2,8 +2,6 @@ import * as React from "react";
 
 import Model from "./Model";
 
-import "../../styles/components/sub-components/Box.css";
-
 export interface BoxProps {
   userID: string | undefined;
   codigo: string;

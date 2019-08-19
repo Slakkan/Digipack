@@ -1,8 +1,6 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 
-import "../styles/components/Header.css";
-
 export interface HeaderProps {}
 
 const Header: React.SFC<HeaderProps> = props => {

@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import '../styles/pages/NotFound.css'
 import Header from '../components/Header';
 
 export interface NotFoundProps {

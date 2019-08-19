@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin:0
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: rgb(17, 30, 27);
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+button:focus {
+    outline:none;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button:disabled {
+    cursor: default;
+}
+
+.is-active {
+    font-weight: bold;
+}
