@@ -1,0 +1,12 @@
+.header-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem 0;
+  background: #6f9a89;
+  font-size: 4rem;
+  font-weight: bold;
+  color: #b7673c;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
