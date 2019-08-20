@@ -38,8 +38,8 @@ export default class Model extends React.Component<ModelProps> {
     this.camera = new THREE.PerspectiveCamera(
       75, // fov = field of view
       1, // aspect ratio
-      50, // near plane
-      2000 // far plane
+      1, // near plane
+      2500 // far plane
     );
 
     this.camera.position.z = 1500;
@@ -47,7 +47,7 @@ export default class Model extends React.Component<ModelProps> {
     this.controls = new OrbitControls(this.camera, this.el);
     this.renderer = new THREE.WebGLRenderer();
     this.renderer.setSize(size, size);
-    this.renderer.setClearColor(0xeeeeee);
+    this.renderer.setClearColor(0xe3e3e3);
     this.renderer.domElement.className = this.props.className;
     this.el.appendChild(this.renderer.domElement);
   };

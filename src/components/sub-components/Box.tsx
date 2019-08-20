@@ -4,9 +4,9 @@ import Model from "./Model";
 
 export interface BoxProps {
   userID: string | undefined;
-  codigo: string;
   medidas: string;
-  contenido: string;
+  categoria: string;
+  contenido: string[];
   model: string;
 }
 
@@ -18,13 +18,22 @@ const Box: React.SFC<BoxProps> = (props: BoxProps) => {
         object="EXHIBIDORA.obj"
         material="EXHIBIDORA.mtl"
       />
-      <div className="box"> <p>{props.codigo}</p>  </div>
       <div className="box">
-        <p>{`Largo:${props.medidas.split("x")[0]}cm`}</p>
-        <p>{`Ancho:${props.medidas.split("x")[1]}cm`} </p>
-        <p>{`Alto:${props.medidas.split("x")[2]}cm`}</p>
+        <p>
+          <h3 className="sub-title">Categoría</h3>
+          {props.categoria}
+        </p>
+        <p>
+          <h3 className="sub-title">Medidas</h3>
+          {`Largo:${props.medidas.split("x")[0]}cm`} <br />
+          {`Ancho:${props.medidas.split("x")[1]}cm`} <br />
+          {`Alto:${props.medidas.split("x")[2]}cm`}
+        </p>
+        <p>
+          <h3 className="sub-title">Contenido</h3>
+          {props.contenido}
+        </p>
       </div>
-      <div className="box"> <p>{props.contenido}</p> </div>
     </div>
   );
 };

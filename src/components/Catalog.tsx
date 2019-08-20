@@ -26,7 +26,7 @@ class Catalog extends React.Component<CatalogProps, CatalogState> {
           <Box
             key={`Box${index}`}
             userID={this.props.userID}
-            codigo={object.codigo}
+            categoria={object.categoria}
             medidas={object.medidas}
             contenido={object.contenido}
             model={object.model}

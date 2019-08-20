@@ -1,0 +1,51 @@
+.box-container {
+  display: flex;
+  justify-content: center;
+  background: $orange;
+  border: 2px solid $grey;
+  border-radius: 1rem;
+  margin: 8px;
+}
+
+.box {
+  display: flex;
+  color: $off-white;
+  flex: 1 1 0;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 1.4rem;
+  line-height: 1.4rem;
+  text-align: justify;
+  padding: 0 1rem;
+}
+
+.sub-title {
+  font-size: 1.6rem;
+  padding-bottom: 0.4rem;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.model-container {
+  flex: 2 1 0;
+}
+
+.model {
+  border-radius: 0.8rem 0 0 0.8rem;
+}
+
+@media screen and (min-width: 720px) {
+  .box-container {
+    margin-bottom: 1rem;
+  }
+  .box {
+    font-size: 2rem;
+    line-height: 2rem;
+    padding: 2rem;
+  }
+  .sub-title {
+    font-size: 2.5rem;
+    padding-bottom: 1rem;
+    font-weight: bold;
+  }
+}

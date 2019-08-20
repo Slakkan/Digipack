@@ -18,15 +18,15 @@ class Packaging extends React.Component<PackagingProps, PackagingState> {
     return (
       <div>
         <Header />
-        <div className="main-container">
+        <div className="content-container">
           <SearchBar
             data={this.props.data}
-            filters={["Medidas", "Contenido", "Cliente"]}
+            filters={["Medidas", "Contenido", "Cliente", "Tipo"]}
           />
           <Catalog
             data={this.props.data}
             userID={this.props.userID}
-            filters={["Modelo", "Código", "Medidas", "Contenido"]}
+            filters={["Modelo", "Descripción"]}
           />
         </div>
       </div>

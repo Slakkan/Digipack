@@ -9,8 +9,16 @@ html {
 }
 
 body {
-    background-color: rgb(17, 30, 27);
+    background-color: $dark-green;
 }
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: $vw;
+    margin: auto;
+  }
 
 button {
     cursor: pointer;

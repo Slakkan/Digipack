@@ -3,25 +3,28 @@
   flex-direction: column;
   justify-content: center;
   padding: 1rem 0;
-  background: #6f9a89;
+  background: $green;
   font-size: 4rem;
   font-weight: bold;
-  color: #b7673c;
+  color: $orange;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
+}
+
+.header-content-container{
+  @extend .content-container;
 }
 
 .link-container {
   display: flex;
   align-items: flex-end;
   flex-grow: 1;
-  margin-left: 2rem;
 }
 
 .title-container {
   display: flex;
   flex-grow: 0;
-  margin-left: 2rem;
+  padding: 2rem 0;
 }
 
 .navigation-link {
@@ -31,7 +34,7 @@
   text-decoration: none;
   text-align: center;
   line-height: 4rem;
-  color: #ffffff;
+  color: $off-white;
   font-family: sans-serif;
   font-size: 2rem;
   font-weight: bold;
@@ -42,7 +45,7 @@
   display: inline-block;
   border: none;
   text-decoration: none;
-  background: #b7673c;
+  background: $orange;
   cursor: pointer;
 
   transition: background 250ms ease-in-out, transform 150ms ease;
@@ -52,7 +55,7 @@
 
 .link-button:hover,
 .link-button:focus {
-  background: #da9d7c;
+  background: $off-orange;
 }
 
 .link-button:first-child {
@@ -68,19 +71,29 @@
 @media screen and (min-width: 720px) {
   .header-container {
     flex-direction: row;
-    justify-content: flex-start;
-    font-size: 8rem;
+    justify-content: space-between;
+    font-size: 6rem;
   }
+
+  .header-content-container{
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
   .title-container {
-    margin: 0 2rem;
-    border-bottom: 0.5rem solid #b7673c;
+    padding-bottom: 0
   }
+
+  .link-container{
+    justify-content: flex-end
+  }
+
   .link-button {
+    flex: 0 1 0;
+    padding: 0.5rem 1rem;
     font-size: 2.5rem;
   }
-  .link-container {
-    max-width: 50%;
-  }
+  
   .link-button:first-child,
   .link-button:last-child {
     border-radius: 0;

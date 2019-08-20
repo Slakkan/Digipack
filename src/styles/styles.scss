@@ -1,10 +1,11 @@
-@import "./reset.css";
+@import "./settings.scss";
+@import "./reset.scss";
 
 @import "./pages/NotFound.css";
-@import "./pages/Packaging.css";
+@import "./pages/Packaging.scss";
 
-@import "./components/Catalog.css";
-@import "./components/Top.css";
-@import "./components/SearchBar.css";
+@import "./components/Catalog.scss";
+@import "./components/Header.scss";
+@import "./components/SearchBar.scss";
 
-@import "./components/sub-components/Box.css";
+@import "./components/sub-components/Box.scss";
