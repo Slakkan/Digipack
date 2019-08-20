@@ -4,7 +4,7 @@
 }
 
 .dropdown {
-    flex: 1 1 0;
+    flex: 1 0 0;
     border: none;
     outline: none;
     margin:1rem 0;
@@ -12,17 +12,18 @@
     font-size: 1.2rem;
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
+    background: $off-white;
 }
 
 .text-input {
-    flex: 2 1 0;
+    flex: 2 0 0;
     border: none;
     outline: none;
     margin: 1rem 0;
-    padding: 0.5rem 1rem;
     font-size: 1.2rem;
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
+    background: $off-white;
 }
 
 @media screen and (min-width: 720px) {

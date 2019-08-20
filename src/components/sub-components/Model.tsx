@@ -7,16 +7,17 @@ export interface ModelProps {
   className: string;
   object: string;
   material: string;
+  medidas: string;
 }
 
 export default class Model extends React.Component<ModelProps> {
-  controls: any;
   scene: THREE.Scene | undefined;
   camera: THREE.PerspectiveCamera | undefined;
   renderer: THREE.WebGLRenderer | undefined;
   requestID = 0;
   model: THREE.Object3D | undefined;
   el: HTMLElement | undefined |null;
+  controls: OrbitControls | undefined;
   componentDidMount() {
     this.sceneSetup();
     this.loadAssets();
@@ -26,12 +27,19 @@ export default class Model extends React.Component<ModelProps> {
   componentWillUnmount() {
     window.removeEventListener("resize", this.handleWindowResize);
     window.cancelAnimationFrame(this.requestID);
-    this.controls.dispose();
+    if(this.controls) {
+      this.controls.dispose();
+    }
   }
   sceneSetup = () => {
     if (!this.el) {
       return;
     }
+
+    const [largo, ancho, alto] = this.props.medidas.split('x')
+
+    const maxDim = Math.max(parseInt(largo), parseInt(ancho), parseInt(alto))
+
     const size = this.el.clientWidth
 
     this.scene = new THREE.Scene();
@@ -39,15 +47,25 @@ export default class Model extends React.Component<ModelProps> {
       75, // fov = field of view
       1, // aspect ratio
       1, // near plane
-      2500 // far plane
+      maxDim * 30 // far plane
     );
 
-    this.camera.position.z = 1500;
+    this.camera.position.x = -parseInt(ancho) * 10
+    this.camera.position.y = parseInt(alto) * 5 + 500
+    this.camera.position.z = parseInt(largo) * 10
 
     this.controls = new OrbitControls(this.camera, this.el);
+    console.log(this.controls)
+    this.controls.zoomSpeed = 0.5
+    this.controls.rotateSpeed = 0.5
+
+
+    console.log(this.controls.getAzimuthalAngle())
+    console.log(this.controls.getPolarAngle())
+
     this.renderer = new THREE.WebGLRenderer();
     this.renderer.setSize(size, size);
-    this.renderer.setClearColor(0xe3e3e3);
+    this.renderer.setClearColor(0xcfb195);
     this.renderer.domElement.className = this.props.className;
     this.el.appendChild(this.renderer.domElement);
   };
@@ -80,8 +98,10 @@ export default class Model extends React.Component<ModelProps> {
 
     this.scene.add(this.model);
 
-    this.model.rotateX(-Math.PI / 2);
-    this.model.rotateZ(Math.PI / 4);
+    this.model.setRotationFromAxisAngle(new THREE.Vector3(1,0,0), Math.PI/2)
+
+    this.model.rotateZ(Math.PI)
+    this.model.rotateY(Math.PI)
 
     const lights = [];
     lights[0] = new THREE.PointLight(0xffffff, 1, 0);

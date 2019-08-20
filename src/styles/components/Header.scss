@@ -47,7 +47,6 @@
   text-decoration: none;
   background: $orange;
   cursor: pointer;
-
   transition: background 250ms ease-in-out, transform 150ms ease;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -86,6 +85,10 @@
 
   .link-container{
     justify-content: flex-end
+  }
+
+  .navigation-link {
+    padding: 0 2rem;
   }
 
   .link-button {
