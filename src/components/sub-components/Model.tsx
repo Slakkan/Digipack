@@ -16,8 +16,9 @@ export default class Model extends React.Component<ModelProps> {
   renderer: THREE.WebGLRenderer | undefined;
   requestID = 0;
   model: THREE.Object3D | undefined;
-  el: HTMLElement | undefined |null;
+  el: HTMLElement | undefined | null;
   controls: OrbitControls | undefined;
+  canvas: HTMLCanvasElement | undefined;
   componentDidMount() {
     this.sceneSetup();
     this.loadAssets();
@@ -27,7 +28,7 @@ export default class Model extends React.Component<ModelProps> {
   componentWillUnmount() {
     window.removeEventListener("resize", this.handleWindowResize);
     window.cancelAnimationFrame(this.requestID);
-    if(this.controls) {
+    if (this.controls) {
       this.controls.dispose();
     }
   }
@@ -36,11 +37,11 @@ export default class Model extends React.Component<ModelProps> {
       return;
     }
 
-    const [largo, ancho, alto] = this.props.medidas.split('x')
+    const [largo, ancho, alto] = this.props.medidas.split("x");
 
-    const maxDim = Math.max(parseInt(largo), parseInt(ancho), parseInt(alto))
+    const maxDim = Math.max(parseInt(largo), parseInt(ancho), parseInt(alto));
 
-    const size = this.el.clientWidth
+    const size = this.el.clientWidth;
 
     this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera(
@@ -50,24 +51,21 @@ export default class Model extends React.Component<ModelProps> {
       maxDim * 30 // far plane
     );
 
-    this.camera.position.x = -parseInt(ancho) * 10
-    this.camera.position.y = parseInt(alto) * 5 + 500
-    this.camera.position.z = parseInt(largo) * 10
+    this.camera.position.x = -parseInt(ancho) * 10;
+    this.camera.position.y = parseInt(alto) * 5 + 500;
+    this.camera.position.z = parseInt(largo) * 10;
 
     this.controls = new OrbitControls(this.camera, this.el);
-    console.log(this.controls)
-    this.controls.zoomSpeed = 0.5
-    this.controls.rotateSpeed = 0.5
-
-
-    console.log(this.controls.getAzimuthalAngle())
-    console.log(this.controls.getPolarAngle())
+    this.controls.zoomSpeed = 0.5;
+    this.controls.rotateSpeed = 0.5;
 
     this.renderer = new THREE.WebGLRenderer();
     this.renderer.setSize(size, size);
     this.renderer.setClearColor(0xcfb195);
-    this.renderer.domElement.className = this.props.className;
-    this.el.appendChild(this.renderer.domElement);
+
+    this.canvas = this.renderer.domElement;
+    this.canvas.className = this.props.className;
+    this.el.appendChild(this.canvas);
   };
 
   loadAssets() {
@@ -98,10 +96,13 @@ export default class Model extends React.Component<ModelProps> {
 
     this.scene.add(this.model);
 
-    this.model.setRotationFromAxisAngle(new THREE.Vector3(1,0,0), Math.PI/2)
+    this.model.setRotationFromAxisAngle(
+      new THREE.Vector3(1, 0, 0),
+      Math.PI / 2
+    );
 
-    this.model.rotateZ(Math.PI)
-    this.model.rotateY(Math.PI)
+    this.model.rotateZ(Math.PI);
+    this.model.rotateY(Math.PI);
 
     const lights = [];
     lights[0] = new THREE.PointLight(0xffffff, 1, 0);
@@ -120,7 +121,12 @@ export default class Model extends React.Component<ModelProps> {
   };
 
   startAnimationLoop = () => {
-    if (!this.model || !this.scene || !this.camera || !this.renderer) {
+    if (
+      !this.model ||
+      !this.scene ||
+      !this.camera ||
+      !this.renderer
+    ) {
       return;
     }
 
@@ -130,15 +136,19 @@ export default class Model extends React.Component<ModelProps> {
   };
 
   handleWindowResize = () => {
-    if (!this.scene || !this.camera || !this.renderer || !this.el) {
+    if (!this.scene || !this.camera || !this.renderer || !this.el || !this.canvas) {
       return;
     }
 
-    const size = this.el.clientWidth
+    this.canvas.style.display = "none"
+
+    const size = this.el.clientWidth;
 
     this.renderer.setSize(size, size);
 
     this.camera.updateProjectionMatrix();
+    
+    this.canvas.style.display = "flex"
   };
 
   render() {

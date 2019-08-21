@@ -3,16 +3,16 @@ import * as React from "react";
 import Header from "../components/Header";
 import { Slide } from "react-slideshow-image";
 
-const slideImages = ["/images/slide_1.jpg", "/images/slide_2.jpg", "/images/Slide_3.jpg"];
+const slideImages = ["/images/slide_1.jpg", "/images/slide_2.jpg", "/images/slide_3.jpg"];
 
 const properties = {
-  duration: 5000,
+  duration: 3500,
   transitionDuration: 500,
   infinite: true,
   indicators: true,
   arrows: true,
   onChange: (oldIndex: number, newIndex: number) => {
-    console.log(`slide transition from ${oldIndex} to ${newIndex}`);
+    // Para uso futuro
   }
 };
 
