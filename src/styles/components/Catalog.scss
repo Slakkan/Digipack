@@ -23,7 +23,7 @@
   flex: 2 1 0;
 }
 
-@media screen and (min-width: 720px) {
+@media screen and (min-width: $transition-medium) {
   .catalog-container {
     padding: 0.5rem;
     border-radius: 1rem;
@@ -33,5 +33,18 @@
     font-size: 4rem;
     line-height: 2rem;
     padding: 0.5rem 0;
+  }
+}
+
+@media screen and (min-width: $transition-big) {
+  .catalog-container {
+    padding: 1rem;
+    border-radius: 2rem;
+  }
+
+  .filter {
+    font-size: 6rem;
+    line-height: 3rem;
+    padding: 1rem 0;
   }
 }

@@ -1,45 +1,63 @@
-.search-container{
-    display: flex;
-    margin-top: 1rem;
+.search-container {
+  display: flex;
+  margin-top: 1rem;
 }
 
 .dropdown {
-    flex: 1 0 0;
-    border: none;
-    outline: none;
-    margin:1rem 0;
-    padding: 0.5rem 2rem;
-    font-size: 1.2rem;
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-    background: $off-white;
+  flex: 1 0 0;
+  border: none;
+  outline: none;
+  margin: 1rem 0;
+  padding: 0.5rem 2rem;
+  font-size: 1.2rem;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  background: $off-white;
 }
 
 .text-input {
-    flex: 2 0 0;
-    border: none;
-    outline: none;
-    margin: 1rem 0;
-    font-size: 1.2rem;
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    background: $off-white;
+  flex: 2 0 0;
+  border: none;
+  outline: none;
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  background: $off-white;
 }
 
-@media screen and (min-width: 720px) {
-    .dropdown {
-        margin:2rem 0;
-        padding: 0.5rem 3rem;
-        font-size: 2rem;
-        border-top-left-radius: 1.5rem;
-        border-bottom-left-radius: 1.5rem;
-    }
-    
-    .text-input {
-        padding: 0.5rem 1.5rem;
-        margin:2rem 0;
-        font-size: 2rem;
-        border-top-right-radius: 1.5rem;
-        border-bottom-right-radius: 1.5rem;
-    }
+@media screen and (min-width: $transition-medium) {
+  .dropdown {
+    margin: 2rem 0;
+    padding: 0.5rem 3rem;
+    font-size: 2rem;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+  }
+
+  .text-input {
+    padding: 0.5rem 1.5rem;
+    margin: 2rem 0;
+    font-size: 2rem;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+  }
+}
+
+@media screen and (min-width: $transition-big) {
+  .dropdown {
+    margin: 3rem 0;
+    padding: 2rem 3rem;
+    font-size: 4rem;
+    border-top-left-radius: 3rem;
+    border-bottom-left-radius: 3rem;
+  }
+
+  .text-input {
+    padding: 2rem 3rem;
+    margin: 3rem 0;
+    font-size: 4rem;
+    border-top-right-radius: 3rem;
+    border-bottom-right-radius: 3rem;
+  }
 }

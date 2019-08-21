@@ -1,17 +1,27 @@
 .slide-container {
-    margin: 2rem 0;
+  margin: 2rem 0;
 }
-.slide{
-    display: block;
-    background-size: cover;
-    height: $vw / 1.77;
+.slide {
+  display: block;
+  background-size: cover;
+  height: $vw / 1.77;
 }
 
-@media screen and (min-width: 720px) {
-    .slide{
-        height: $vwd / 1.77;
+@media screen and (min-width: $transition-medium) {
+  .slide {
+    height: $vwm / 1.77;
+  }
+  .slide-container {
+    margin: 4rem 0;
+  }
+}
+
+@media screen and (min-width: $transition-big) {
+    .slide {
+      height: $vwb / 1.77;
     }
     .slide-container {
-        margin: 4rem 0;
+      margin: 6rem 0;
     }
   }
+  
