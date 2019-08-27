@@ -3,11 +3,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack')
 
 module.exports = env => {
-    process.env.NODE_ENV = env.NODE_ENV || 'development'
 
-    if (process.env.NODE_ENV === 'development') {
+    if (env.NODE_ENV === 'development') {
         var dotenv = require('dotenv').config({ path: __dirname + '/.env' });
         process.env = dotenv.parsed
+    }
+    else {
+        process.env = env
     }
     
     return {
