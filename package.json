@@ -7,8 +7,8 @@
     "node": "10.16.0"
   },
   "scripts": {
-    "build": "webpack -p --env production",
-    "server": "webpack-dev-server",
+    "build": "webpack --env.NODE_ENV=production --progress",
+    "server": "webpack-dev-server --env.NODE_ENV=development",
     "start": "node server/server.js",
     "heroku-postbuild": "npm run build"
   },
