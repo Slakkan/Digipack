@@ -1,18 +1,18 @@
-# Material Library for EXHIBIDORA.obj
-newmtl ShaderLitTexture0xE4D9AFC
+# Material Library for ESTANTERIA.obj
+newmtl ShaderLitTexture0x11568564
+Kd 0.752941 0.752941 0.752941
+Ks 0.0980392 0.0980392 0.0980392
+Ka 0.223529 0.223529 0.223529
+Ns 7.89201
+
+newmtl ShaderLitTexture0x1157C764
 Kd 0.996078 0.901961 0.662745
 Ks 0 0 0
 Ka 0.298039 0.270588 0.196078
 Ns 4
 
-newmtl ShaderLitTexture0xE4EC2BC
+newmtl ShaderLitTexture0x115735AC
 Kd 1 1 1
 Ks 0 0 0
 Ka 0.8 0.8 0.8
 Ns 4
-
-newmtl ShaderLitTexture0xE4D811C
-Kd 0.752941 0.752941 0.752941
-Ks 0.0980392 0.0980392 0.0980392
-Ka 0.223529 0.223529 0.223529
-Ns 7.89201

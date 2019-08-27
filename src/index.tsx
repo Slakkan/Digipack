@@ -24,7 +24,7 @@ const fakeData = [
     contenido: ["Mercadería"],
     cliente: "Pepito",
     model: "ESTANTERIA",
-    precio: 500
+    precio: 780
   }
 ];
 

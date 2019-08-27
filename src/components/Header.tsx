@@ -1,13 +1,18 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 
+import { firebase, googleAuthProvider } from '../database/firebase'
+
 export interface HeaderProps {}
 
 const Header: React.SFC<HeaderProps> = props => {
   return (
     <div className="header-container">
       <div className="header-content-container">
-        <div className="title-container">Digipack</div>
+        <div className="title-container">
+          Digipack
+          <button className="link-login" onClick={() => {firebase.auth().signInWithPopup(googleAuthProvider)}}>Ingresar</button>
+        </div>
         <div className="link-container">
           <button
             className="link-button"

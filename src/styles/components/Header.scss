@@ -13,6 +13,7 @@
 
 .header-content-container {
   @extend .content-container;
+  flex-wrap: wrap;
 }
 
 .link-container {
@@ -23,8 +24,18 @@
 
 .title-container {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   flex-grow: 0;
   padding: 2rem 0;
+  width: 100%;
+}
+
+.link-login{
+  width: 80px;
+  height: 24px;
+  font-size: 1.5rem;
+  background: $dark-red;
 }
 
 .navigation-link {
@@ -83,6 +94,13 @@
     padding-bottom: 0;
   }
 
+  .link-login{
+    margin:1rem;
+    width: 100px;
+    height: 30px;
+    font-size: 2rem;
+  }
+
   .link-container {
     justify-content: flex-end;
   }
@@ -108,6 +126,13 @@
     flex-direction: row;
     justify-content: space-between;
     font-size: 6rem;
+  }
+
+  .link-login{
+    margin:2rem;
+    width: 160px;
+    height: 40px;
+    font-size: 2.5rem;
   }
 
   .navigation-link {
