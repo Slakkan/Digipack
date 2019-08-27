@@ -5,13 +5,9 @@ const webpack = require('webpack')
 module.exports = env => {
 
     if (env.NODE_ENV === 'development') {
-        var dotenv = require('dotenv').config({ path: __dirname + '/.env' });
-        process.env = dotenv.parsed
+        require('dotenv').config({ path: '.env' })
     }
-    else {
-        process.env = env
-    }
-    
+
     return {
         mode: "development",
         entry: "./src/index.tsx",
