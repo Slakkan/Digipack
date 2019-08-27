@@ -3,6 +3,7 @@ import 'firebase/firestore';
 import 'firebase/database'
 import 'firebase/auth'
 
+console.log(process.env)
 
 const config = {
     apiKey: process.env.FIREBASE_API_KEY,
