@@ -7,7 +7,7 @@
     "node": "10.16.0"
   },
   "scripts": {
-    "build": "webpack",
+    "build": "webpack -p --env production",
     "server": "webpack-dev-server",
     "start": "node server/server.js",
     "heroku-postbuild": "npm run build"

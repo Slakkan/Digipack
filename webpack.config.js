@@ -2,7 +2,30 @@ const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack')
 
-var dotenv = require('dotenv').config({ path: __dirname + '/.env' });
+process.env.NODE_ENV = process.env.NODE_ENV || 'development'
+
+const plugins = [
+    new MiniCssExtractPlugin({
+        filename: '[name].css',
+        ignoreOrder: false,
+    })
+]
+
+if (process.env.NODE_ENV === 'development') {
+    var dotenv = require('dotenv').config({ path: __dirname + '/.env' });
+    plugins.push(new webpack.DefinePlugin({
+        process: {
+            env: {
+                FIREBASE_API_KEY: JSON.stringify(dotenv.parsed.FIREBASE_API_KEY),
+                FIREBASE_AUTH_DOMAIN: JSON.stringify(dotenv.parsed.FIREBASE_AUTH_DOMAIN),
+                FIREBASE_DATABASE_URL: JSON.stringify(dotenv.parsed.FIREBASE_DATABASE_URL),
+                FIREBASE_PROJECT_ID: JSON.stringify(dotenv.parsed.FIREBASE_PROJECT_ID),
+                FIREBASE_STORAGE_BUCKET: JSON.stringify(dotenv.parsed.FIREBASE_STORAGE_BUCKET),
+                FIREBASE_MESSAGING_SENDER_ID: JSON.stringify(dotenv.parsed.FIREBASE_MESSAGING_SENDER_ID)
+            }
+        }
+    }))
+}
 
 module.exports = {
     mode: "development",
@@ -12,24 +35,7 @@ module.exports = {
         path: path.join(__dirname, 'dist'),
         filename: "[name].js"
     },
-    plugins: [
-        new MiniCssExtractPlugin({
-            filename: '[name].css',
-            ignoreOrder: false,
-        }),
-        new webpack.DefinePlugin({
-            process: {
-                env: {
-                    FIREBASE_API_KEY: JSON.stringify(dotenv.parsed.FIREBASE_API_KEY),
-                    FIREBASE_AUTH_DOMAIN: JSON.stringify(dotenv.parsed.FIREBASE_AUTH_DOMAIN),
-                    FIREBASE_DATABASE_URL: JSON.stringify(dotenv.parsed.FIREBASE_DATABASE_URL),
-                    FIREBASE_PROJECT_ID: JSON.stringify(dotenv.parsed.FIREBASE_PROJECT_ID),
-                    FIREBASE_STORAGE_BUCKET: JSON.stringify(dotenv.parsed.FIREBASE_STORAGE_BUCKET),
-                    FIREBASE_MESSAGING_SENDER_ID: JSON.stringify(dotenv.parsed.FIREBASE_MESSAGING_SENDER_ID)
-                }
-            }
-        }),
-    ],
+    plugins: [],
     module: {
         rules: [
             {
@@ -52,6 +58,7 @@ module.exports = {
             }
         ]
     },
+    plugins: plugins,
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         historyApiFallback: true
