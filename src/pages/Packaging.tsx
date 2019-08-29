@@ -1,6 +1,5 @@
 import * as React from "react";
 
-import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
 import Catalog from "../components/Catalog";
 
@@ -17,7 +16,6 @@ class Packaging extends React.Component<PackagingProps, PackagingState> {
   render() {
     return (
       <div>
-        <Header />
         <div className="content-container">
           <SearchBar
             data={this.props.data}

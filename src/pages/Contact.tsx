@@ -1,7 +1,5 @@
 import * as React from "react";
 
-import Header from "../components/Header";
-
 export interface ContactProps {
   userID: string | undefined
 }
@@ -14,7 +12,6 @@ class Contact extends React.Component<ContactProps, ContactState> {
   render() {
     return (
       <div>
-        <Header />
       </div>
     );
   }

@@ -4,11 +4,6 @@
   justify-content: center;
   padding: 1rem 0;
   background: $green;
-  font-size: 4rem;
-  font-weight: bold;
-  color: $orange;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-    1px 1px 0 #000;
 }
 
 .header-content-container {
@@ -29,13 +24,30 @@
   flex-grow: 0;
   padding: 2rem 0;
   width: 100%;
+  font-size: 4rem;
+  font-weight: bold;
+  color: $orange;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.login-welcome {
+  display: flex;
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: $off-white;
+  text-shadow: none;
+  max-width: 50%;
 }
 
 .link-login{
   width: 80px;
-  height: 24px;
+  height: 25px;
   font-size: 1.5rem;
   background: $dark-red;
+  border-radius: 30px;
+  margin: 1rem 0;
 }
 
 .navigation-link {
@@ -82,7 +94,6 @@
   .header-container {
     flex-direction: row;
     justify-content: space-between;
-    font-size: 4rem;
   }
 
   .header-content-container {
@@ -92,13 +103,20 @@
 
   .title-container {
     padding-bottom: 0;
+    font-size: 6rem;
+  }
+
+  .login-welcome {
+    padding: 1.5rem;
+    font-size: 2rem;
   }
 
   .link-login{
-    margin:1rem;
-    width: 100px;
-    height: 30px;
+    margin: 1.5rem 0;
+    width: 130px;
+    height: 40px;
     font-size: 2rem;
+    border-radius: 0px;
   }
 
   .link-container {
@@ -125,13 +143,21 @@
   .header-container {
     flex-direction: row;
     justify-content: space-between;
-    font-size: 6rem;
+  }
+
+  .title-container {
+    font-size: 8rem;
+  }
+
+  .login-welcome {
+    padding: 2rem;
+    font-size: 3rem;
   }
 
   .link-login{
-    margin:2rem;
-    width: 160px;
-    height: 40px;
+    margin:2rem 0;
+    width: 180px;
+    height: 60px;
     font-size: 2.5rem;
   }
 

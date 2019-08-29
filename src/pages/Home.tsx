@@ -1,6 +1,5 @@
 import * as React from "react";
 
-import Header from "../components/Header";
 import { Slide } from "react-slideshow-image";
 
 const slideImages = ["/images/slide_1.jpg", "/images/slide_2.jpg", "/images/slide_3.jpg"];
@@ -17,16 +16,15 @@ const properties = {
 };
 
 export interface HomeProps {
-  userID: string | undefined;
 }
 
-export interface HomeState {}
+export interface HomeState {
+}
 
 class Home extends React.Component<HomeProps, HomeState> {
   render() {
     return (
       <div>
-        <Header />
         <div className="content-container">
           <Slide {...properties}>
             <div className="slide-container">

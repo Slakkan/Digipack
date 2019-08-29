@@ -28,4 +28,6 @@ const fakeData = [
   }
 ];
 
-ReactDOM.render(<Router data={fakeData} />, app);
+const adminList = ['lnpastinante@gmail.com']
+
+ReactDOM.render(<Router adminList={adminList} data={fakeData} />, app);
