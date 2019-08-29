@@ -17,11 +17,10 @@
 }
 
 @media screen and (min-width: $transition-big) {
-    .slide {
-      height: $vwb / 1.77;
-    }
-    .slide-container {
-      margin: 6rem 0;
-    }
+  .slide {
+    height: $vwb / 1.77;
   }
-  
+  .slide-container {
+    margin: 6rem 0;
+  }
+}

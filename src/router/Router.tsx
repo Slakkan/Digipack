@@ -22,7 +22,7 @@ export interface RouterState {
 }
 
 class Router extends React.Component<RouterProps, RouterState> {
-  state = { isAdmin: false };
+  state = { isAdmin: true };
   authenticate(userData: firebase.auth.UserCredential) {
     const isAdmin = this.props.adminList.find(email => userData.user.email === email) !== undefined
     this.setState({ userData, isAdmin });
