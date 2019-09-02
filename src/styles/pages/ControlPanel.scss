@@ -8,18 +8,17 @@
   align-items: center;
 }
 
-#form-info{
+#form-info {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  width: 70%;
+  width: 75%;
 }
 
-#form-model{
+#form-model {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 70%;
+  width: 75%;
 }
 
 .title {
@@ -31,27 +30,38 @@
   display: none;
 }
 
+.input-text {
+  border: none;
+  background: $off-white;
+  width: 50%;
+  max-width: 100%;
+  margin: 0 0.5rem;
+  border-radius: 1rem;
+}
+
 .label {
   font-weight: 700;
   color: $off-white;
   background-color: $orange;
-  padding: 1rem 0;
+  margin: 0.5rem;
 }
 
 .input-file-label {
+  @extend .label;
+  display: flex;
+  flex: 1 1 0;
   font-size: 1.5rem;
-  margin-bottom: 1rem;
-  border-radius: 1.5rem;
-  padding: 0.5rem 1.5rem;
-  @extend .label
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
 }
 
 .input-text-label {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    border-radius: 1.5rem;
-    padding: 0.5rem 1.5rem;
-    @extend .label
+  @extend .label;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
 }
 
 .input-file-label:focus,
@@ -60,24 +70,111 @@
   transition: 0.3s;
 }
 
+#form-submit{
+  background: $orange;
+  padding: 1rem 2rem;
+  margin: 1rem 0;
+  border-radius: 1rem;
+  font-size: 2rem;
+  height: 4rem;
+  line-height: 2rem;
+  font-weight: bold;
+  color: $off-white;
+}
+
+#form-submit:hover {
+  background: $dark-red;
+  transition: 0.3s
+}
+
 @media screen and (min-width: $transition-medium) {
+  #form-info {
+    width: 60%;
+  }
+  
+  #form-model {
+    width: 60%;
+  }
+  
   .title {
     font-size: 3rem;
+    margin: 2rem 0;
   }
+
+  .input-text {
+    margin: 0 0.5rem;
+  }
+
+  .label {
+    align-self: center;
+    width: 100%;
+  }
+  
   .input-file-label {
     font-size: 2rem;
     border-radius: 2rem;
     padding: 1rem 2rem;
   }
-}
-.input-text-label {
-    font-size: 2rem;
-    border-radius: 2rem;
-    padding: 1rem 2rem;
+  
+  .input-text-label {
+    font-size: 1.8rem;
+    border-radius: 1rem;
+    padding: 0.8rem 1.2rem;
+  }
+
+  #form-submit{
+    margin: 1.5rem 0;
+    font-size: 3rem;
+    height: 5rem;
+    line-height: 3rem;
+  }
 }
 
 @media screen and (min-width: $transition-big) {
+  #form-model {
+    width: 95%;
+  }
+
+  #form-info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 95%;
+  }
+
+  .label {
+    width: 48%;
+  }
+  
   .title {
     font-size: 4rem;
+    margin: 3rem 0;
+  }
+
+  .input-text {
+    margin: 0 1rem;
+  }
+  
+  .input-file-label {
+    font-size: 3rem;
+    border-radius: 3rem;
+    padding: 2rem 3rem;
+  }
+  
+  .input-text-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 2.4rem;
+    border-radius: 2rem;
+    padding: 1.6rem 2.4rem;
+  }
+
+  #form-submit{
+    margin: 2rem 0;
+    font-size: 4rem;
+    height: 6rem;
+    line-height: 4rem;
   }
 }
+

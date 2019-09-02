@@ -24,7 +24,7 @@
   flex-grow: 0;
   padding: 2rem 0;
   width: 100%;
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: bold;
   color: $orange;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
@@ -52,14 +52,14 @@
 
 .navigation-link {
   width: 100%;
-  height: 4rem;
+  height: 3rem;
   display: block;
   text-decoration: none;
   text-align: center;
-  line-height: 4rem;
+  line-height: 3rem;
   color: $off-white;
   font-family: sans-serif;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
@@ -103,7 +103,7 @@
 
   .title-container {
     padding-bottom: 0;
-    font-size: 6rem;
+    font-size: 4rem;
   }
 
   .login-welcome {
@@ -125,12 +125,15 @@
 
   .navigation-link {
     padding: 0 0.5rem;
+    height: 4rem;
+    line-height: 4rem;
+    font-size: 2rem;
   }
 
   .link-button {
     flex: 0 1 0;
     padding: 0.5rem 1rem;
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .link-button:first-child,
@@ -146,27 +149,30 @@
   }
 
   .title-container {
-    font-size: 8rem;
+    font-size: 5rem;
   }
 
   .login-welcome {
-    padding: 2rem;
-    font-size: 3rem;
+    padding: 1.5rem;
+    font-size: 2.5rem;
   }
 
   .link-login{
-    margin:2rem 0;
+    margin: 1.5rem 0;
     width: 180px;
     height: 60px;
     font-size: 2.5rem;
   }
 
   .navigation-link {
-    padding: 0 3rem;
+    padding: 0 1rem;
+    height: 5rem;
+    line-height: 5rem;
+    font-size: 2.5rem;
   }
 
   .link-button {
-    padding: 1rem 2rem;
-    font-size: 4rem;
+    padding: 0.5rem 1rem;
+    font-size: 3rem;
   }
 }
