@@ -5,8 +5,8 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 export interface ModelProps {
   className: string;
-  object: string;
-  material: string;
+  obj: string;
+  mtl: string;
   medidas: string;
 }
 
@@ -70,14 +70,12 @@ export default class Model extends React.Component<ModelProps> {
 
   loadAssets() {
     const mtlLoader = new MTLLoader();
-    mtlLoader.setPath("3D/");
-    mtlLoader.load(this.props.material, (materials: any) => {
+    mtlLoader.load(this.props.mtl, (materials: any) => {
       materials.preload();
       const objLoader = new OBJLoader();
       objLoader.setMaterials(materials);
-      objLoader.setPath("3D/");
       objLoader.load(
-        this.props.object,
+        this.props.obj,
         (object: THREE.Object3D) => {
           object.position.y = 0;
           this.model = object;
