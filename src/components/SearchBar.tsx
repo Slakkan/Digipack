@@ -2,7 +2,6 @@ import * as React from "react";
 
 
 export interface SearchBarProps {
-  data: any[];
   filters: string[];
   category?: string;
 }

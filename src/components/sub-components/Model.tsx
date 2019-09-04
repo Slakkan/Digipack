@@ -51,9 +51,10 @@ export default class Model extends React.Component<ModelProps> {
       maxDim * 30 // far plane
     );
 
-    this.camera.position.x = -parseInt(ancho) * 10;
-    this.camera.position.y = parseInt(alto) * 5 + 500;
-    this.camera.position.z = parseInt(largo) * 10;
+    this.camera.position.x = -parseInt(ancho) * 2;
+    this.camera.position.y = parseInt(alto) * 0.25;
+    this.camera.position.z = parseInt(largo) * 2;
+
 
     this.controls = new OrbitControls(this.camera, this.el);
     this.controls.zoomSpeed = 0.5;
@@ -94,10 +95,7 @@ export default class Model extends React.Component<ModelProps> {
 
     this.scene.add(this.model);
 
-    this.model.setRotationFromAxisAngle(
-      new THREE.Vector3(1, 0, 0),
-      Math.PI / 2
-    );
+    this.model.setRotationFromAxisAngle(new THREE.Vector3(1, 0, 0), Math.PI / 2);
 
     this.model.rotateZ(Math.PI);
     this.model.rotateY(Math.PI);
@@ -119,12 +117,7 @@ export default class Model extends React.Component<ModelProps> {
   };
 
   startAnimationLoop = () => {
-    if (
-      !this.model ||
-      !this.scene ||
-      !this.camera ||
-      !this.renderer
-    ) {
+    if (!this.model || !this.scene || !this.camera || !this.renderer) {
       return;
     }
 
@@ -138,15 +131,15 @@ export default class Model extends React.Component<ModelProps> {
       return;
     }
 
-    this.canvas.style.display = "none"
+    this.canvas.style.display = "none";
 
     const size = this.el.clientWidth;
 
     this.renderer.setSize(size, size);
 
     this.camera.updateProjectionMatrix();
-    
-    this.canvas.style.display = "flex"
+
+    this.canvas.style.display = "flex";
   };
 
   render() {

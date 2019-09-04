@@ -3,25 +3,46 @@ import * as React from "react";
 import { cloud, database } from "../database/firebase";
 import Box from "./sub-components/Box";
 
+interface modelosInfo {
+  codigo: string;
+  categoria: string;
+  medidas: string;
+  contenido: string;
+  cliente: string;
+  precio: string;
+  obj?: string;
+  mtl?: string;
+}
+
+interface modelos3D {
+  codigo: string;
+  obj?: any;
+  mtl?: any;
+  [key: string]: any;
+}
+
 export interface CatalogProps {
   userID: string | undefined;
   filters: string[];
 }
 
 export interface CatalogState {
-  data: any[];
+  modelosInfo: modelosInfo[];
+  modelos3D: modelos3D[];
 }
 
 class Catalog extends React.Component<CatalogProps, CatalogState> {
   state = {
-    data: []
+    modelosInfo: [],
+    modelos3D: []
   };
   componentDidMount() {
     this.downloadInfo();
     this.download3DModels();
   }
+
   async downloadInfo() {
-    const modelosInfo: any[] = [];
+    let modelosInfo: modelosInfo[] = [];
     await database
       .ref("productos")
       .once("value")
@@ -29,42 +50,79 @@ class Catalog extends React.Component<CatalogProps, CatalogState> {
         snapshot.forEach(producto => {
           const codigo = producto.key.replace("@", ".");
           const { categoria, medidas, contenido, cliente, precio } = producto.val();
-          const envase = { codigo, categoria, medidas, contenido, cliente, precio };
+          const envase: modelosInfo = { codigo, categoria, medidas, contenido, cliente, precio };
           modelosInfo.push(envase);
         });
       });
 
-    console.log(modelosInfo);
-
-    return modelosInfo;
+    this.setState({ ...this.state, modelosInfo });
   }
 
   async download3DModels() {
-    const modelos3D: any[] = [];
+    let modelos3D: modelos3D[] = [];
     await cloud
       .ref()
       .child("3D")
       .listAll()
       .then(res => {
-        res.items.forEach(item => {
+        for (const item of res.items) {
           const [codigoLetra, codigoNumero, extension] = item.name.split(".");
           const codigo = `${codigoLetra}.${codigoNumero}`;
-          const index = modelos3D.findIndex(envase => (envase.codigo = codigo));
-          if (index === -1) {
-            const index = modelos3D.push({ codigo }) - 1
-            item.getDownloadURL().then(url => modelos3D[index][extension] = url)
-          } else {
-            item.getDownloadURL().then(url => modelos3D[index][extension] = url)
-          }
-        });
+          item.getDownloadURL().then(url => {
+            const modelo = modelos3D.find(elemento => elemento.codigo === codigo);
+            if (modelo) {
+              modelo[extension] = url;
+            } else {
+              modelos3D.push({
+                codigo,
+                [extension]: url
+              });
+            }
+          });
+        }
       })
       .catch(error => console.log("Something went wrong:", error));
 
-    console.log(modelos3D);
+    this.setState({ ...this.state, modelos3D });
+  }
+  generateBoxes() {
+    const { modelosInfo, modelos3D }: { modelosInfo: modelosInfo[]; modelos3D: modelos3D[] } = this.state;
 
-    return modelos3D;
+    const data = modelos3D.map(envase => {
+      const info = modelosInfo.find(modelo => modelo.codigo === envase.codigo);
+
+      return {
+        codigo: envase.codigo,
+        obj: envase.obj,
+        mtl: envase.mtl,
+        categoria: info ? info.categoria : "",
+        medidas: info ? info.medidas : "",
+        contenido: info ? info.contenido : "",
+        cliente: info ? info.cliente : "",
+        precio: info ? info.precio : ""
+      };
+    });
+
+    return data.map((modelo, index) => {
+      if (!modelo.obj || !modelo.mtl) {
+        return;
+      }
+      return (
+        <Box
+          key={`Box${index}`}
+          userID={this.props.userID}
+          codigo={modelo.codigo}
+          categoria={modelo.categoria}
+          medidas={modelo.medidas}
+          contenido={modelo.contenido}
+          obj={modelo.obj}
+          mtl={modelo.mtl}
+        />
+      );
+    });
   }
   render() {
+    const { modelosInfo, modelos3D } = this.state;
     return (
       <div className="catalog-container">
         <div className="filter-container">
@@ -74,16 +132,7 @@ class Catalog extends React.Component<CatalogProps, CatalogState> {
             </div>
           ))}
         </div>
-        {this.props.data.map((object, index) => (
-          <Box
-            key={`Box${index}`}
-            userID={this.props.userID}
-            categoria={object.categoria}
-            medidas={object.medidas}
-            contenido={object.contenido}
-            model={object.model}
-          />
-        ))}
+        { modelosInfo && modelos3D ? this.generateBoxes() : null }
       </div>
     );
   }
