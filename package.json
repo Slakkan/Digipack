@@ -22,7 +22,7 @@
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
     "react-slideshow-image": "^1.2.2",
-    "three": "^0.107.0",
+    "three": "^0.137.0",
     "three-obj-mtl-loader": "^1.0.3"
   },
   "devDependencies": {
